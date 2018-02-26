@@ -21,14 +21,23 @@ class Dictionary():
             self.dict[hashed].append([key,value])
             self.inserted += 1
     def find(self, key):
-        hashed=self.hashing(key)
+        hashed = self.hashing(key)
         for lst in (self.dict[hashed]):
             if lst[0] == key:
                 return lst[1]
                 
         return None
-    
+    def delete(self, key):
+        hashed = self.hashing(key)
+        for lst in (self.dict[hashed]):
+            if lst[0] == key:
+                self.dict[hashed].remove(lst)
+        if len(self.dict[hashed]) == 0:
+            self.dict[hashed].append(None)
+            self.dict[hashed].append(None)
+
     def tableDoubling(self):
         table = [[None,None] for i in range(self.size)]
         self.dict.extend(table)
         self.size *= 2
+# Dictionary with open addressing instead

@@ -74,20 +74,22 @@ class Dictionary2():
                 counter += 1
                 self.insert(key, value, counter)
             
-    def find(self, key, counter = 1)
+    def find(self, key, counter = 1):
         hashed = self.hashing(key)
-        probe=(hashed * counter * hashed2) % self.size
-            if self.dict[hashed][0] == key:
-                return self.dict[hashed]
-            else:
-                if self.dict[probed][0] != None:
-                    if key == self.dict[probed][0]:
-                        return self.dict[probed]
-                if self.dict[probed][0] == None:
-                    return None
+        hashed2 = self.hashing2(key, counter)
+        if counter >= 2:
+            probe=(hashed * counter * hashed2) % self.size
+            if self.dict[probe][0][0] == key:
+                return self.dict[probe][0]
                 counter += 1
-                self.find(self, key, counter)
-
+                return self.find(key, counter)
+        if self.dict[hashed][0][0] == key:
+            return self.dict[hashed]
+        if self.dict[hashed][0][0] == None:
+            return None
+        else:
+            counter += 1
+            return self.find(key, counter)
     
     def delete(self, key):
         hashed = self.hashing(key)

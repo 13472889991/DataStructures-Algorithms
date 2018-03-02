@@ -50,23 +50,29 @@ class Heap():
         largest = index
         l = self.left(index)
         r = self.right(index)
-        if l == None or r == None:
-            return None
-        if(self.lst[index] < self.lst[l]):
+    
+        if(l != None and self.lst[index] < self.lst[l]):
             largest = l
-        if(self.lst[largest] < self.lst[r]):
+        if(r != None and self.lst[largest] < self.lst[r]):
             largest = r
         if largest != index:
             temp = self.lst[largest]
             self.lst[largest] = self.lst[index]
             self.lst[index] = temp
     def extract_max(self):
-        self.lst[0], self.lst[len(self.lst)-1] =self.lst[len(self.lst)-1],self.lst[0]                                               
-        return self.lst.pop()        
+        self.lst[0], self.lst[len(self.lst)-1] = self.lst[len(self.lst)-1],self.lst[0]                                               
+        output = self.lst.pop()
+        self.build_max_heap()
+        return output
     #Heap_sort sorts the heap.
     def build_max_heap(self):
         size = len(self.lst)
         for i in range(0, size//2):
             self.max_heapify(i)
+    
+    def heap_sort(self):
+        for i in range (len(self.lst)):
+            print(self.extract_max())
+            self.build_max_heap()
         
         

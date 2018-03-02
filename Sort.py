@@ -1,6 +1,5 @@
 ﻿# Insertion Sort that runs in θ(n^2) time
 # TODO:implement with binary search to insert, O(n(lg(n)) time
-
 def insertionSort(lst):
     for i in range(1, len(lst)):
         key = lst[i]
@@ -39,7 +38,7 @@ def merge(lst, lst2):
     return output
 
 def countingSort(lst, maximum = 0):
-    sort=[]
+    sort = []
     if maximum == 0:
         for i in lst:
             if maximum < i:
@@ -52,9 +51,18 @@ def countingSort(lst, maximum = 0):
             sort.append(counter)
     return sort
 
+def selectionSort(lst):
+    output=[]
+    for i in range(len(lst)):
+        minimum=lst[0]
+        for j in (lst):
+            if minimum > j:
+                minimum = j
+        lst.remove(minimum)               
+        output.append(minimum)
+    return output
 
-
-            
+        
             
     
     

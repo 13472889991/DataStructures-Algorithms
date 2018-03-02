@@ -8,7 +8,7 @@ class Heap():
     
     def left(self, index):
         index += 1
-        if 2 * index >= len(self.lst):
+        if 2 * index >= len(self.lst) + 1:
             return None
         return (2 * index - 1)
     # Returns right child index of node, runs in 0(1) time.Returns none if
@@ -16,9 +16,9 @@ class Heap():
 
     def right(self, index):
         index += 1
-        if 2 * (index) >= len(self.lst):
+        if 2 * (index)  >= len(self.lst):
             return None
-        return (2 * index - 1)
+        return (2 * index)
     # Returns parent index of the node, runs in 0(1) time.Returns none if D.N.E
 
     def parent(self, index):
@@ -50,6 +50,8 @@ class Heap():
         largest = index
         l = self.left(index)
         r = self.right(index)
+        if l == None or r == None:
+            return None
         if(self.lst[index] < self.lst[l]):
             largest = l
         if(self.lst[largest] < self.lst[r]):
@@ -58,3 +60,13 @@ class Heap():
             temp = self.lst[largest]
             self.lst[largest] = self.lst[index]
             self.lst[index] = temp
+    def extract_max(self):
+        self.lst[0], self.lst[len(self.lst)-1] =self.lst[len(self.lst)-1],self.lst[0]                                               
+        return self.lst.pop()        
+    #Heap_sort sorts the heap.
+    def build_max_heap(self):
+        size = len(self.lst)
+        for i in range(0, size//2):
+            self.max_heapify(i)
+        
+        

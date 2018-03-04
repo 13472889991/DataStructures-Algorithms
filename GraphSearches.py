@@ -15,16 +15,16 @@ class Graph():
     def BFS(self, start):
         level = {start : 0}
         parent = {start : None}
-        i = 1
+        levelCounter = 1
         frontier = [start]
-        while frontier:
+        while frontier: #While there are descendants
             nextFrontier = [ ]
-            for u in frontier:
-                for v in self.vertices[u]:
-                    if v not in level:
-                        level[v] = i
-                        parent[v] = u
-                        nextFrontier.append(v)
+            for vertice in frontier:
+                for connection in self.vertices[vertice]:
+                    if connection not in level:
+                        level[connection] = levelCounter
+                        parent[connection] = vertice
+                        nextFrontier.append(connection)
             frontier = nextFrontier
-            i += 1
+            levelCounter += 1
         print str(level)

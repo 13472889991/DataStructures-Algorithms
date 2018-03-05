@@ -2,8 +2,8 @@ class Graph():
     def __init__(self, lst):
         self.vertices={}
         for i in lst:
-            self.vertices[i[0]]=[]
-            self.vertices[i[1]]=[]
+            self.vertices[i[0]] = []
+            self.vertices[i[1]] = []
         for i in lst:
             self.vertices[i[0]].append(i[1])
             self.vertices[i[1]].append(i[0])
@@ -28,3 +28,18 @@ class Graph():
             frontier = nextFrontier
             levelCounter += 1
         print str(level)
+    def DFS(self, start):
+        parent = { }
+        for vertices in self.vertices[start]:
+            if vertices not in parent:
+                parent[start] = None
+                
+                return self.DFSVisit(start, parent)
+        
+
+    def DFSVisit(self, start, parent):
+        for vertices in self.vertices[start]:
+            if vertices not in parent:
+                parent[vertices] = start
+                return self.DFSVisit(start, parent)
+        

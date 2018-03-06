@@ -74,5 +74,17 @@ class Heap():
         for i in range (len(self.lst)):
             print(self.extract_max())
             self.build_max_heap()
+    def min_heapify(self, index):
+        smallest = index
+        l = self.left(index)
+        r = self.right(index)
+        if (l != None and self.lst[index] > self.lst[l]):
+            smallest = l
+        if (r != None and self.lst[largest] > self.lst[r]):
+            smallest = r
+        if smallest != index:
+            temp = self.lst[smallest]
+            self.lst[smallest] = self.lst[index]
+            self.lst[index] = tempqq
         
         

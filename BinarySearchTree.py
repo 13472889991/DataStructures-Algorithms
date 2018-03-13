@@ -21,8 +21,26 @@ class Node():
 
 
 class BinarySearchTree():
-    def __init__(self, value):
-        self.root=Node(value,)
+    def __init__(self, value = None):
+        self.root = Node(value)
+    def setRoot(self, value):
+        self.root = Node(value)
+    def insert(self, value):
+        if self.root = None
+           self.root = Node(value)
+        else:
+          self.insertNode(self.root, key)
+    def insertNode(current, key):
+        if key < current.key:
+           if current.left:
+              self.insertNode(current.left, key)
+           else :
+              currrent.left_child = Node(key)
+        if key > current.key:
+           if current.right:
+              self.insertNode(current.right, key)
+           else:
+              current.right = Node(key)
     # returns the value of the nodes in ascending order
     def __str__(self):
         return self.inOrderTraversal(self)

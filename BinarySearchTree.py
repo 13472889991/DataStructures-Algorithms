@@ -36,7 +36,7 @@ class BinarySearchTree():
               self.insertNode(current.left, key)
            else :
               currrent.left_child = Node(key)
-        if key > current.key:
+        elif key > current.key:
            if current.right:
               self.insertNode(current.right, key)
            else:

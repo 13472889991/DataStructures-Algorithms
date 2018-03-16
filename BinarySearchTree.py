@@ -73,17 +73,17 @@ class BinarySearchTree():
         if root == None:
             root = self.root
         print(root.value)
-        preOrderTraversal(root.left)
-        preOrderTraversal(root.right)
+        self.preOrderTraversal(root.left)
+        self.preOrderTraversal(root.right)
     def inOrderTraversal(self, root = None):
         if root == None:
             root = self.root
-        preOrderTraversal(root.left)
+        self.preOrderTraversal(root.left)
         print (root.value)
-        preOrderTraversal(root.right)
+        self.preOrderTraversal(root.right)
     def postOrderTraversal(self, root = None):
         if root == None:
             root = self.root
-        preOrderTraversal(root.left)
-        preOderTraversal(root.right)
+        self.preOrderTraversal(root.left)
+        self.preOderTraversal(root.right)
         print(root.value)

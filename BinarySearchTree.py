@@ -43,7 +43,7 @@ class BinarySearchTree():
               current.right = Node(key)
     # returns the value of the nodes in ascending order
     def __str__(self):
-        return self.inOrderTraversal(self)
+        return self.inOrderTraversal(self,self.root)
     # Given a value of a node, looks through the tree to find node with said value. Returns None if it does not exist
     def find(value, root = None):
         if root == None:
@@ -69,5 +69,21 @@ class BinarySearchTree():
             root = root.right()
         return root
     #TODO
-    def inOrderTraversal(self):
-        output=[]
+    def preOrderTraversal(self, root = None):
+        if root == None:
+            root = self.root
+        print(root.value)
+        preOrderTraversal(root.left)
+        preOrderTraversal(root.right)
+    def inOrderTraversal(self, root = None):
+        if root == None:
+            root = self.root
+        preOrderTraversal(root.left)
+        print (root.value)
+        preOrderTraversal(root.right)
+    def postOrderTraversal(self, root = None):
+        if root == None:
+            root = self.root
+        preOrderTraversal(root.left)
+        preOderTraversal(root.right)
+        print(root.value)

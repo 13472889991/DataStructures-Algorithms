@@ -53,7 +53,7 @@ class BinarySearchTree():
                 root = root.left
             else:
                 root = root.right
-        return root 
+       return root 
     #Finds the minimum value of a node in the BST
     def min(self, value, root = None ):
         if root == None:

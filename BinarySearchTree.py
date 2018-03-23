@@ -50,25 +50,35 @@ class BinarySearchTree():
             root=self.root
         while root.value != value and root.value != None:
             if root.value > value :
-                root = root.left()
+                root = root.left
             else:
-                root = root.right()
+                root = root.right
         return root 
     #Finds the minimum value of a node in the BST
     def min(self, value, root = None ):
         if root == None:
             root = self.root
-        while root.left().value != None:
-            root = root.left()
+        while root.left.value != None:
+            root = root.left
         return root
     #Finds the maximum value of a node in the BST
     def max(self, value, root = None ):
         if root == None:
             root = self.root
-        while root.right().value != None:
-            root = root.right()
+        while root.right.value != None:
+            root = root.right
         return root
     #TODO
+    def treeSort(self, node = None, nodes = []):
+        if node is None:
+            node = self.root
+        if node.key:
+            if node.left:
+              self.treeSort(node.left, nodes)
+            nodes.append(node.key)
+            if node.right:
+               self.treeSort(node.right, nodes)
+            return nodes
     def preOrderTraversal(self, root = None):
         if root == None:
             root = self.root
